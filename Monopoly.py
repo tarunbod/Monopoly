@@ -11,7 +11,7 @@ diceNumber = 0
 turns = 1
 money1 = 1500
 money2 = 1500
-
+# test comment
 def chance():
     print "You landed on Chance"
     global money1, money2, turns
