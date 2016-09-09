@@ -48,7 +48,7 @@ class Player(object):
                 self.money -= self.board.property_list[self.location].price
 
         else :
-            print "Fuck you"
+            print "You did not purchase"
     def community_chest_cards(self):
         community_chest_random = randrange(1,5)
         if community_chest_random == 1:
