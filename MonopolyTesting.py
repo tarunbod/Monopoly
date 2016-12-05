@@ -79,6 +79,7 @@ class Player(object):
         if purchase.lower() == 'yes':
             if self.money >= self.board.property_list[self.location].price:
                 print "It costs " + str(self.board.property_list[self.location].price)
+                self.board.property_list[self.location].is_buyable = False # so no one else can buy it
                 self.money -= self.board.property_list[self.location].price
                 self.check_buy = False
                 print str(self.check_buy)
@@ -152,8 +153,9 @@ class ComputerPlayer(Player):
     def buy_property(self):
         global property_landed_on
         purchase = randrange(0,6)
-        if purchase % 2 == 0:
+        if purchase % 2 == 0 && property_landed_on.is_buyable:
             print self.player_name + " has purchased this property!"
+            self.board.property_list[self.location].is_buyable = False # so no one else can buy it
             self.money -= self.board.property_list[self.location].price
             self.owner = self.player_name
         else:
